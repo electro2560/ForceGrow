@@ -89,6 +89,7 @@ public class PlayerListener implements Listener{
 			GrowUtils.growNetherWart(b);
 			break;
 		default: break;
+		
 		}
 	}
 	

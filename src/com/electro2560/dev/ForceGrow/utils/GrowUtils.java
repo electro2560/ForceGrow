@@ -54,7 +54,6 @@ public class GrowUtils {
 				c.setData(p.getData());
 				return;
 			}
-			
 		}while(faces.size() < 4);
 	}
 	
