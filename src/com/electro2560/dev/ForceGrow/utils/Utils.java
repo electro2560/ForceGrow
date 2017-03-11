@@ -16,8 +16,6 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Utils {
 	
-	public static final ForceGrow m = ForceGrow.get();
-	
 	public static void log(String msg){
 		Bukkit.getServer().getLogger().info(ChatColor.GREEN + "[ForceGrow] " + msg);
 	}
@@ -41,20 +39,15 @@ public class Utils {
 		
 		double c = p1/p2;
 		
-		if(chance.equals("1/1")) c = 1;
-		
 		if(c >= Math.random()) return true;
 		
 		return false;
 	}
 
+	private static final BlockFace[] randomFaces = {BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST};
+	
 	public static BlockFace randomFace(){
-		double rnd = Math.random() * 100; 
-		
-		if(rnd <= 25) return BlockFace.NORTH;
-		else if(rnd <= 50) return BlockFace.SOUTH;
-		else if(rnd <= 75) return BlockFace.EAST;
-		else return BlockFace.WEST;
+		return randomFaces[getRndInt(0, randomFaces.length - 1)];
 	}
 	
 	public static int getRndInt(int min, int max){
@@ -84,11 +77,11 @@ public class Utils {
 	}
 
 	public static boolean isCheckForUpdates() {
-		return m.getConfig().getBoolean("checkForUpdates", true);
+		return ForceGrow.get().getConfig().getBoolean("checkForUpdates", true);
 	}
 
 	public static String getVersion() {
-		return m.getDescription().getVersion();
+		return ForceGrow.get().getDescription().getVersion();
 	}
 	
 	public static void startMetrics(){
