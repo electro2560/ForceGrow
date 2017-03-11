@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.electro2560.dev.ForceGrow.ForceGrow;
 import com.electro2560.dev.ForceGrow.utils.GrowUtils;
+import com.electro2560.dev.ForceGrow.utils.Perms;
 import com.electro2560.dev.ForceGrow.utils.Utils;
 
 public class PlayerListener implements Listener{
@@ -38,6 +39,8 @@ public class PlayerListener implements Listener{
 		
 		switch(t){
 		case SUGAR_CANE_BLOCK:
+			if(!player.hasPermission(Perms.canForceSugarCane)) return;
+			
 			int size = Utils.getHeightSize(b);
 			
 			//Too large to grow again
@@ -50,6 +53,8 @@ public class PlayerListener implements Listener{
 			GrowUtils.growReeds(b);
 			break;
 		case PUMPKIN_STEM:
+			if(!player.hasPermission(Perms.canForcePumpkin)) return;
+			
 			if(b.getData() != 7) return;
 			
 			decrementItemInHand(player);
@@ -59,6 +64,8 @@ public class PlayerListener implements Listener{
 			GrowUtils.growPumpkin(b);
 			break;
 		case MELON_STEM:
+			if(!player.hasPermission(Perms.canForceMelon)) return;
+			
 			if(b.getData() != 7) return;
 			
 			decrementItemInHand(player);
@@ -68,6 +75,8 @@ public class PlayerListener implements Listener{
 			GrowUtils.growMelon(b);
 			break;
 		case CACTUS:
+			if(!player.hasPermission(Perms.canForceCactus)) return;
+			
 			int s = Utils.getHeightSize(b);
 			
 			//Too large to grow again
@@ -80,6 +89,8 @@ public class PlayerListener implements Listener{
 			GrowUtils.growCactus(b);
 			break;
 		case NETHER_WARTS:
+			if(!player.hasPermission(Perms.canForceNetherWart)) return;
+			
 			if(b.getData() == 3) return;
 
 			decrementItemInHand(player);
