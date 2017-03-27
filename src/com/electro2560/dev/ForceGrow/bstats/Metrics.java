@@ -1,4 +1,4 @@
-package org.bstats;
+package com.electro2560.dev.ForceGrow.bstats;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

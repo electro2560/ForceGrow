@@ -3,7 +3,6 @@ package com.electro2560.dev.ForceGrow.utils;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
-import org.bstats.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -11,6 +10,7 @@ import org.bukkit.block.BlockFace;
 import org.mcstats.MetricsLite;
 
 import com.electro2560.dev.ForceGrow.ForceGrow;
+import com.electro2560.dev.ForceGrow.bstats.Metrics;
 
 import net.md_5.bungee.api.ChatColor;
 
