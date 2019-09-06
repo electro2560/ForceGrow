@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow.updater;
+package com.electro2560.dev.forcegrow.updater;
 
 import java.beans.ConstructorProperties;
 
@@ -6,9 +6,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.electro2560.dev.ForceGrow.ForceGrow;
-import com.electro2560.dev.ForceGrow.utils.Perms;
-import com.electro2560.dev.ForceGrow.utils.Utils;
+import com.electro2560.dev.forcegrow.ForceGrow;
+import com.electro2560.dev.forcegrow.utils.Perms;
+import com.electro2560.dev.forcegrow.utils.Utils;
 
 public class UpdateListener implements Listener {
 	private final ForceGrow plugin;

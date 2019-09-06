@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow.bstats;
+package com.electro2560.dev.forcegrow.bstats;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

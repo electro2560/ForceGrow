@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow.updater;
+package com.electro2560.dev.forcegrow.updater;
 
 import org.apache.commons.lang.StringUtils;
 

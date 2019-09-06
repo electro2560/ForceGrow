@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow.listeners;
+package com.electro2560.dev.forcegrow.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -10,10 +10,10 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.electro2560.dev.ForceGrow.ForceGrow;
-import com.electro2560.dev.ForceGrow.utils.GrowUtils;
-import com.electro2560.dev.ForceGrow.utils.Perms;
-import com.electro2560.dev.ForceGrow.utils.Utils;
+import com.electro2560.dev.forcegrow.ForceGrow;
+import com.electro2560.dev.forcegrow.utils.GrowUtils;
+import com.electro2560.dev.forcegrow.utils.Perms;
+import com.electro2560.dev.forcegrow.utils.Utils;
 
 public class PlayerListener implements Listener{
 

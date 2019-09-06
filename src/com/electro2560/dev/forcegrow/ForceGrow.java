@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow;
+package com.electro2560.dev.forcegrow;
 
 import java.io.File;
 
@@ -6,9 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.electro2560.dev.ForceGrow.listeners.PlayerListener;
-import com.electro2560.dev.ForceGrow.updater.UpdateListener;
-import com.electro2560.dev.ForceGrow.utils.Utils;
+import com.electro2560.dev.forcegrow.listeners.PlayerListener;
+import com.electro2560.dev.forcegrow.updater.UpdateListener;
+import com.electro2560.dev.forcegrow.utils.Utils;
 
 public class ForceGrow extends JavaPlugin{
 

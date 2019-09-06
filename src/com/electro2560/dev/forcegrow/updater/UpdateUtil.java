@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow.updater;
+package com.electro2560.dev.forcegrow.updater;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.electro2560.dev.ForceGrow.utils.Utils;
+import com.electro2560.dev.forcegrow.utils.Utils;
 
 public class UpdateUtil {
 	public static final String PREFIX = "§a§l[ForceGrow] §a";

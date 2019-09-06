@@ -1,5 +1,5 @@
 name: ForceGrow
-main: com.electro2560.dev.ForceGrow.ForceGrow
+main: com.electro2560.dev.forcegrow.ForceGrow
 version: 1.0.3
 api-version: 1.13
 author: ElectroBoy2560

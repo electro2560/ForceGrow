@@ -1,4 +1,4 @@
-package com.electro2560.dev.ForceGrow.utils;
+package com.electro2560.dev.forcegrow.utils;
 
 import java.util.HashSet;
 
