@@ -5,7 +5,7 @@ import java.util.HashSet;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.material.Pumpkin;
+import org.bukkit.block.data.Ageable;
 
 public class GrowUtils {
 
@@ -23,14 +23,13 @@ public class GrowUtils {
 				Block c = b.getRelative(f);
 				if(c == null || c.getType() != Material.AIR) continue;
 				
-				c.setType(Material.MELON_BLOCK);
+				c.setType(Material.MELON);
 				return;
 			}
 			
 		}while(faces.size() < 4);
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void growPumpkin(Block b){
 		HashSet<BlockFace> faces = new HashSet<BlockFace>();
 		
@@ -45,26 +44,23 @@ public class GrowUtils {
 				Block c = b.getRelative(f);
 				if(c == null || c.getType() != Material.AIR) continue;
 				
-				c.setType(Material.PUMPKIN);
-				
-				//Set the direction of the pumpkin to be random
-				Pumpkin p = (Pumpkin) c.getState().getData();
-
-				p.setFacingDirection(Utils.randomFace());
-				c.setData(p.getData());
+				c.setType(Material.PUMPKIN);	
 				return;
 			}
 		}while(faces.size() < 4);
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void growNetherWart(Block b){
-		byte age = b.getData();
+		Ageable a = (Ageable) b.getBlockData();
+		
+		int age = a.getAge();
 		
 		age += Utils.getRndInt(1, 2);
 		
-		if(age >= 3) b.setData((byte) 3);
-		else b.setData(age);
+		if(age >= a.getMaximumAge()) a.setAge(a.getMaximumAge());
+		else a.setAge(age);
+		
+		b.setBlockData(a);
 	}
 
 	public static void growCactus(final Block b){
@@ -88,9 +84,17 @@ public class GrowUtils {
 			
 			if(current.getType() != Material.AIR) continue;
 			
-			current.setType(Material.SUGAR_CANE_BLOCK);
+			current.setType(Material.SUGAR_CANE);
 			return;
 		}
+	}
+	
+	public static boolean fullyGrown(Block b) {
+		Ageable a = (Ageable) b.getBlockData();
+		
+		if(a.getAge() >= a.getMaximumAge()) return true;
+		
+		return false;
 	}
 	
 }

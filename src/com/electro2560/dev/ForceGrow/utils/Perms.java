@@ -12,5 +12,4 @@ public class Perms {
 	public static final Permission canForceCactus = new Permission("forcegrow.force.cactus");
 	public static final Permission canForceSugarCane = new Permission("forcegrow.force.sugarcane");
 	
-	
 }

@@ -19,7 +19,6 @@ public class PlayerListener implements Listener{
 
 	static FileConfiguration config = ForceGrow.get().getConfig();
 	
-	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onInteractWithBlock(PlayerInteractEvent event){
 		Player player = event.getPlayer();
@@ -31,14 +30,14 @@ public class PlayerListener implements Listener{
 		
 		Material t = b.getType();
 		
-		ItemStack i = player.getItemInHand();
+		ItemStack i = player.getInventory().getItemInMainHand();
 		if(i == null) return;
 		
 		//Ensure the player is holding bone meal
-		if(i.getType() != Material.INK_SACK || i.getData().getData() != 15) return;
+		if(i.getType() != Material.BONE_MEAL) return;
 		
 		switch(t){
-		case SUGAR_CANE_BLOCK:
+		case SUGAR_CANE:
 			if(!player.hasPermission(Perms.canForceSugarCane)) return;
 			
 			int size = Utils.getHeightSize(b);
@@ -55,7 +54,8 @@ public class PlayerListener implements Listener{
 		case PUMPKIN_STEM:
 			if(!player.hasPermission(Perms.canForcePumpkin)) return;
 			
-			if(b.getData() != 7) return;
+			//Stem must be fully grown
+			if(!GrowUtils.fullyGrown(b)) return;
 			
 			decrementItemInHand(player);
 			
@@ -66,7 +66,8 @@ public class PlayerListener implements Listener{
 		case MELON_STEM:
 			if(!player.hasPermission(Perms.canForceMelon)) return;
 			
-			if(b.getData() != 7) return;
+			//Stem must be fully grown
+			if(!GrowUtils.fullyGrown(b)) return;
 			
 			decrementItemInHand(player);
 			
@@ -88,10 +89,10 @@ public class PlayerListener implements Listener{
 			
 			GrowUtils.growCactus(b);
 			break;
-		case NETHER_WARTS:
+		case NETHER_WART:
 			if(!player.hasPermission(Perms.canForceNetherWart)) return;
 			
-			if(b.getData() == 3) return;
+			if(GrowUtils.fullyGrown(b)) return;
 
 			decrementItemInHand(player);
 			
@@ -104,11 +105,10 @@ public class PlayerListener implements Listener{
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	private void decrementItemInHand(Player player){
-		ItemStack i = player.getItemInHand();
+		ItemStack i = player.getInventory().getItemInMainHand();
 		
-		if(i.getAmount() - 1 <= 1) player.getInventory().setItemInHand(null);
+		if(i.getAmount() - 1 <= 1) player.getInventory().setItemInMainHand(null);
 		else i.setAmount(i.getAmount() - 1);
 	}
 	
