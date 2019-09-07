@@ -1,5 +1,8 @@
 package com.electro2560.dev.forcegrow.listeners;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,6 +22,14 @@ public class PlayerListener implements Listener{
 
 	static FileConfiguration config = ForceGrow.get().getConfig();
 	
+	private List<String> disabledWorlds;
+	
+	public PlayerListener() {
+		disabledWorlds = config.getStringList("disabled-worlds");
+		
+		if(disabledWorlds == null) disabledWorlds = new ArrayList<String>();
+	}
+	
 	@EventHandler
 	public void onInteractWithBlock(PlayerInteractEvent event){
 		Player player = event.getPlayer();
@@ -35,6 +46,8 @@ public class PlayerListener implements Listener{
 		
 		//Ensure the player is holding bone meal
 		if(i.getType() != Material.BONE_MEAL) return;
+		
+		if(disabledWorlds.contains(player.getWorld().getName())) return;
 		
 		switch(t){
 		case SUGAR_CANE:

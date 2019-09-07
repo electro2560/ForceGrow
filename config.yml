@@ -19,3 +19,8 @@ useMetrics: true
 
 #Display update messages to player if they have the permission forcegrow.updates
 checkForUpdates: true
+
+#Worlds ForceGrow is disabled in. These are case sensitive.
+disabled-worlds:
+  - example1
+  - example2
